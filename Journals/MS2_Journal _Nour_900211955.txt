@@ -1,0 +1,48 @@
+﻿Important Note: We worked together continuously on Friday and Saturday to finish the project, therefore, we’ve done the same things together.
+
+
+
+
+Thursday:
+November 2, 11:00 pm: 
+* Created a decompressor for milestone 3, but not tested yet.
+
+
+Friday:
+November 3, 3:00 pm:
+* Edited the CU and ALU CU to include all instructions for the data types we had from the lab (RISB)
+November 3, 4:40 pm:
+* Edited the ALU to include all operations needed for all instructions 
+* Edited the memories to be byte addressable instead of word addressable
+November 3, 5:55 pm:
+* Created the Branch control unit and created the case statement that would carry out the needed flag comparison
+* Edited data memory reading and writing to accommodate the different load and store instructions
+November 3, 9:15 pm:
+* Edited the CU and the ALUCU as well as some aspects of the top module (Processor) to accommodate for JAL, JALR, LUI, AUIPC, EBREAK, ECALL, FENCE, FENCE.I
+
+
+Saturday:
+November 4, 12:00 am: 
+* Drew full datapath on draw.io.
+November 4, 1:30 pm:
+* Ran the project on Vivado to check for syntax errors and fixed them.
+November 4, 2:30 pm:
+* Ran the first test (Lab test) to see that original path was still working
+November 4, 4:10 pm:
+* Created and ran the second test for all arithmetic I type instructions
+* Discovered that the slti and sltiu were incorrect, then we fixed the problem we had with the carry flag, which was leading to this problem.
+* Discovered that the >>>operator was working incorrectly as it was not sign extending. We then added $signed() around the operand to ensure that the program is taking signed numbers into account.
+November 4, 6:30 pm(A break was taken after this):
+* Created and ran the third test for all Load and R type instructions. It worked on the first try :) 
+November 4, 8:25 pm:
+* Created and ran the fourth test for the rest of the instructions including the SBUJ type instructions as well as JALR, EBREAK, ECALL, FENCE, FENCE.I. 
+* Discovered problems in AUIPC and JALR instructions and fixed them.
+November 4, 9:30 pm:
+* Attempted a functional program that writes 1,2,3,4,5 into memory and swaps it to 5,4,3,2,1.
+November 4, 9:59 pm:
+*  left the lab
+
+
+Sunday:
+November 5, 5:00pm: 
+* Wrote the report and readme.txt

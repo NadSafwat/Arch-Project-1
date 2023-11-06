@@ -1,0 +1,9 @@
+addi x1, x0, -5 #X1 = -5
+slti x2, x1, 3 #x2 = 1
+sltiu x3,x1, 3 #x3 = 0
+xori x4, x3, 20 #x4 = 20
+ori x5, x4, 85 #x5 = 85
+andi x6, x1, -25 #x6 = -29
+slli x7, x2, 4 #X7 = 16
+srli x8, x4, 2 #x8 = 5
+srai x9, x6, 2 #x9 = -8
