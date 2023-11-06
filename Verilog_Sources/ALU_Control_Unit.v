@@ -1,53 +1,52 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 10/03/2023 06:32:58 PM
-// Design Name: 
-// Module Name: ALU_Control_Unit
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+
+/*******************************************************************
+*
+* Module: ALU_Control_Unit.v
+* Project: Arch-Project-1
+* Authors: Nadine Safwat nadine.hkm@aucegypt.edu
+           Nour Kasaby N.Kasaby@aucegypt.edu
+* Description: recieves the funct7, funct3 and aluOp of the current
+               instruction and uses them to assign the appropriate 
+               ALU_Sel
+* Change history: 26/09/23 – Created file in lab
+                  03/11/23 – Added to case statment to include all 
+                             instructions
+**********************************************************************/
 
 
-module ALU_Control_Unit(
-    input [2:0] funct3,
-    input funct7,
-    input [1:0] ALUop,
-    output reg [3:0] ALUSel
-    );
+module ALU_Control_Unit
+(
+    input Funct_7,
+    input [1:0] ALU_Op,
+    input [2:0] Funct_3,
+    output reg [3:0] ALU_Sel
+);
 
-always @(*) begin
-case(ALUop)
-    2'b00: ALUSel = 4'b0000;                                    //LOAD or STORE or JAL or JALR or AUIPC (ADD)
+    always @(*) begin
+        case(ALU_Op)
+            2'b00: ALU_Sel = 4'b0000;                                    //LOAD or STORE or JAL or JALR or AUIPC (ADD)
 
-    2'b01: ALUSel = 4'b0001;                                    //BRANCH (SUB)
-    
-    2'b10: begin  //RTYPE - ITYPE
-        case(funct3)
-            3'b000: ALUSel = funct7 ? 4'b0001 : 4'b0000;        //ADD : SUB
-            3'b001: ALUSel = 4'b1001;                           //SLL
-            3'b010: ALUSel = 4'b1101;                           //SLT
-            3'b011: ALUSel = 4'b1111;                           //SLTU
-            3'b100: ALUSel = 4'b0111;                           //XOR
-            3'b101: ALUSel = funct7 ? 4'b1010 : 4'b1000;        //SRA : SRL
-            3'b110: ALUSel = 4'b0100;                           //OR
-            3'b111: ALUSel = 4'b0101;                           //AND
+            2'b01: ALU_Sel = 4'b0001;                                    //BRANCH (SUB)
+            
+            2'b10: begin  //RTYPE - ITYPE
+                case(Funct_3)
+                    3'b000: ALU_Sel = Funct_7 ? 4'b0001 : 4'b0000;        //ADD : SUB
+                    3'b001: ALU_Sel = 4'b1001;                           //SLL
+                    3'b010: ALU_Sel = 4'b1101;                           //SLT
+                    3'b011: ALU_Sel = 4'b1111;                           //SLTU
+                    3'b100: ALU_Sel = 4'b0111;                           //XOR
+                    3'b101: ALU_Sel = Funct_7 ? 4'b1010 : 4'b1000;        //SRA : SRL
+                    3'b110: ALU_Sel = 4'b0100;                           //OR
+                    3'b111: ALU_Sel = 4'b0101;                           //AND
+                    default: ALU_Sel = 4'b0011;                          //PASS
+                endcase
+            end 
+
+            2'b11: ALU_Sel = 4'b0011;                                    //LUI (PASS)
+
+            default: ALU_Sel = 4'b0011;                                  //PASS
         endcase
-    end 
-
-    2'b11: ALUSel = 4'b0011;                                    //LUI
-endcase
-end
+    end
 
 endmodule
