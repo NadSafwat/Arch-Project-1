@@ -1,7 +1,6 @@
 `timescale 1ns / 1ps
 
 /*******************************************************************
-*
 * Module: ALU_Control_Unit.v
 * Project: Arch-Project-1
 * Authors: Nadine Safwat nadine.hkm@aucegypt.edu

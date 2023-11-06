@@ -1,23 +1,16 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 10/03/2023 06:10:03 PM
-// Design Name: 
-// Module Name: Control_Unit
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+
+/*******************************************************************
+* Module: Control_Unit.v
+* Project: Arch-Project-1
+* Authors: Nadine Safwat nadine.hkm@aucegypt.edu
+           Nour Kasaby N.Kasaby@aucegypt.edu
+* Description: Will read the last 5 bits of the opcode of the current 
+               instuction and will use it to assign the appropriate 
+               cointrol signals to be used by the rest of the program
+* Change history: 00/10/23 – Created module in lab
+                  03/11/23 - edited module to include all instructions
+**********************************************************************/
 
 
 module Control_Unit
@@ -180,7 +173,7 @@ module Control_Unit
       end
     
     default: 
-      begin
+      begin  //NOP
         Branch = 0;
         Jump = 0;
         Mem_Read = 0;
