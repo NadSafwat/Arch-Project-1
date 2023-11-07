@@ -1,23 +1,15 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 10/03/2023 06:41:02 PM
-// Design Name: 
-// Module Name: RCA
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+/*******************************************************************
+* Module: RCA.v
+* Project: Arch-Project-1
+* Authors: Nadine Safwat nadine.hkm@aucegypt.edu
+           Nour Kasaby N.Kasaby@aucegypt.edu
+* Description: This module is a ripple carry adder that takes 2 n-bit
+               inputs and outputs the sum and the carry. It also assigns
+                the overflow and the carry flag.
+* Change history: 12/09/23 – Created module in lab
+                  03/11/23 - edited module to assien overflow and carry flags
+*******************************************************************************/
 
 
 module RCA #(parameter n=8)(

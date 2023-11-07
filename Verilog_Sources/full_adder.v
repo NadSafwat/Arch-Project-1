@@ -1,23 +1,13 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 10/03/2023 06:41:22 PM
-// Design Name: 
-// Module Name: full_adder
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+/*******************************************************************
+* Module: full_adder.v
+* Project: Arch-Project-1
+* Authors: Nadine Safwat nadine.hkm@aucegypt.edu
+           Nour Kasaby N.Kasaby@aucegypt.edu
+* Description: This module is a full adder that takes 3 inputs, carries
+               out addition and then and outputs the sum and the carry
+* Change history: 26/09/23 – Created module in lab
+**********************************************************************/
 
 
 module full_adder(

@@ -1,26 +1,19 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 10/03/2023 06:26:24 PM
-// Design Name: 
-// Module Name: ImmGen
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+/*******************************************************************
+* Module: Imm_Gen.v
+* Project: Arch-Project-1
+* Authors: Nadine Safwat nadine.hkm@aucegypt.edu
+           Nour Kasaby N.Kasaby@aucegypt.edu
+* Description: This module receives the 32 bit instuction and extracts 
+               the 32 bit immediate value from it depending on the opcode
+               of the incoming instruction. It also takes into account the 
+               sign extension of the immediate value.
+* Change history: 19/09/23 – Created module in lab
+                  03/11/23 - edited module to include all instructions
+**********************************************************************/
 
 
-module ImmGen (
+module Imm_Gen (
     output reg [31:0] gen_out, 
     input [31:0] inst
     );
@@ -63,6 +56,10 @@ module ImmGen (
         
            7'b0010111: begin//AUIPC
               gen_out = { inst[31:12], 12'b0 } ;
+              end
+              
+            default: begin
+              gen_out = 32'b0;
               end
        endcase 
     end                    
