@@ -31,6 +31,7 @@ always @(*) begin
         3'b101: Branch_And = Branch & (S_Flag == V_Flag);
         3'b110: Branch_And = Branch & ~C_Flag;
         3'b111: Branch_And = Branch & C_Flag;
+        default: Branch_And = 1'b0;
     endcase
 end
 

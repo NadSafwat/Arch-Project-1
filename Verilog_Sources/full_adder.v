@@ -18,6 +18,6 @@ module full_adder(
     output cout
     );
 
-assign {cout,P} = A + B + cin;
+    assign {cout,P} = A + B + cin;
 
 endmodule

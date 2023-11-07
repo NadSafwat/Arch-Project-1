@@ -14,32 +14,32 @@
 
 
 module Reg_File #(parameter n = 32)(
-input [4:0] RS1,
-input [4:0] RS2,
-input [4:0] RD,
-input reg_Write,
-input clk,
-input rst,
-input [n-1:0] write_Data,
-output [n-1:0] read_Data1,
-output [n-1:0] read_Data2
+    input [4:0] RS1,
+    input [4:0] RS2,
+    input [4:0] RD,
+    input reg_Write,
+    input clk,
+    input rst,
+    input [n-1:0] write_Data,
+    output [n-1:0] read_Data1,
+    output [n-1:0] read_Data2
     );
     
-reg [n-1:0] Registers [31:0];
-integer i;
+    reg [n-1:0] Registers [31:0];
+    integer i;
 
-always @ (posedge clk or posedge rst) begin
-    if(rst == 1'b1) begin
-        for(i =0; i<n; i=i+1) begin
-            Registers[i] <= 0;
+    always @ (posedge clk or posedge rst) begin
+        if(rst == 1'b1) begin
+            for(i =0; i<n; i=i+1) begin
+                Registers[i] <= 0;
+            end
         end
-    end
-    
-    else if(reg_Write == 1'b1) begin
-        if(RD != 0) 
-            Registers[RD] <= write_Data;
-    end
-end 
+        
+        else if(reg_Write == 1'b1) begin
+            if(RD != 0) 
+                Registers[RD] <= write_Data;
+        end
+    end 
 
     assign read_Data1 = Registers[RS1];
     assign read_Data2 = Registers[RS2];

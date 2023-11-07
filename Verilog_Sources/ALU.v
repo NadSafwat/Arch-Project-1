@@ -53,6 +53,7 @@ module ALU #(parameter n = 32)
             4'b1001: ALU_out = ALU_A << ALU_B;
             4'b1101: ALU_out = (S_Flag != V_Flag) ?  32'b1 : 32'b0;
             4'b1111: ALU_out = (~C_Flag) ? 32'b1 : 32'b0;
+            default: ALU_out = ALU_B;
          endcase
     end
    
