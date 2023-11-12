@@ -11,7 +11,6 @@
 * Change history: 03/11/23 – Created module 
 **********************************************************************/
 
-
 module Branch_Control_Unit
 (
     input [2:0] Funct_3,
@@ -34,5 +33,4 @@ always @(*) begin
         default: Branch_And = 1'b0;
     endcase
 end
-
 endmodule

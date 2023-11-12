@@ -1,18 +1,23 @@
 `timescale 1ns / 1ps
+
 /*******************************************************************
 * Module: Inst_Mem.v
 * Project: Arch-Project-1
 * Authors: Nadine Safwat nadine.hkm@aucegypt.edu
            Nour Kasaby N.Kasaby@aucegypt.edu
-* Description: Receives the address of the instruction through the PC
-               and will return the instruction stored in that address
+* Description: Receives the Address of the instruction through the PC
+               and will return the instruction stored in that Address
 * Change history: 03/10/23 – Created module in lab
-                  03/11/23 - edited module to be byte addressable
-                             instead of word addressable
+                  03/11/23 - edited module to be byte Addressable
+                             instead of word Addressable
 **********************************************************************/
 
+module Inst_Mem 
+  (
+  input [7:0] Addr, 
+  output [31:0] Data_Out
+  ); 
 
-module Inst_Mem (input [7:0] addr, output [31:0] data_out); 
   reg [7:0] mem [0:255]; 
 
   initial begin 
@@ -39,9 +44,9 @@ module Inst_Mem (input [7:0] addr, output [31:0] data_out);
     {mem[83], mem[82], mem[81], mem[80]} = 32'b11111110000000000000000011100011; //beq zero, zero, swap # loop back
   end 
 
-  assign data_out[7:0] = mem[addr];
-  assign data_out[15:8] = mem[addr+1];
-  assign data_out[23:16] = mem[addr+2];
-  assign data_out[31:24] = mem[addr+3];
+  assign Data_Out[7:0] = mem[Addr];
+  assign Data_Out[15:8] = mem[Addr+1];
+  assign Data_Out[23:16] = mem[Addr+2];
+  assign Data_Out[31:24] = mem[Addr+3];
 
 endmodule

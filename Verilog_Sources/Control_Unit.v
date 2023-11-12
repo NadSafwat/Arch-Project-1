@@ -12,7 +12,6 @@
                   03/11/23 - edited module to include all instructions
 **********************************************************************/
 
-
 module Control_Unit
 (
   input [4:0] Opcode,

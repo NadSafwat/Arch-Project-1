@@ -14,7 +14,6 @@
                              instructions and added flags
 **********************************************************************/
 
-
 module ALU #(parameter n = 32)
 (
     input [n-1:0] ALU_A,
@@ -38,7 +37,7 @@ module ALU #(parameter n = 32)
     assign Z_Flag = (SUB == 0) ? 1'b1 : 1'b0;
     assign S_Flag = SUB[n-1];
 
-    RCA #(.n(32)) rca (.A(ALU_A), .B(Mux_Out), .P(ADD), .carry(C_Flag), .overflow(V_Flag));
+    RCA RCA(.A(ALU_A), .B(Mux_Out), .Sum(ADD), .Carry_Out(C_Flag), .Overflow(V_Flag));
  
     always @ (*) begin
          case(ALU_Sel)
@@ -56,6 +55,4 @@ module ALU #(parameter n = 32)
             default: ALU_out = ALU_B;
          endcase
     end
-   
 endmodule
-
